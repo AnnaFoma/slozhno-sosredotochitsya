@@ -1,5 +1,187 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+:root {
+  --main-font: "IBM Plex mono";
+  --bg-color: #000028;
+  --text-color: #F1B2CE;
+  --accent-color: #DB00FF;
+  --red-color: #FF0070;
+  --shadow-color: #FF0070;
+  --black-color: #000028;
+}
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--text-color, #353430);
+  font-family: var(--main-font, sans-serif);
+  background-color: var(--bg-color, #FFF1F7);
+}
+
+.header__theme-menu-button {
+  color: var(--red-color, #353430);
+  height: 26px;
+  padding: 0px 13px;
+  /* background-color: transparent;
+  border: none; */
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.header {
+  background-image: url("../images/cover-image.png");
+  max-width: 1024px;
+  min-width: 375px;
+  max-height: 768px;
+  min-height: 668px;
+  padding: 0 20px;
+  /* width: 100%; */
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
+
+}
+
+.header__theme-menu {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.header__theme-menu-list {
+  display: flex;
+}
+
+.cover-title {
+  color: var(--accent-color, #FFC2E6);
+  text-shadow: 4px 4px 0px var(--shadow-color, #FF0070);
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  font-size: clamp(7.25rem, 6.3477rem + 3.8498vw, 9.8125rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 82.5%;
+}
+
+.aligned-text_left {
+  /* color: #DB00FF;
+text-shadow: 4px 4px 0px #FF0070; */
+
+}
+
+.aligned-text_right {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  background-color: var(--red-color, #FF8DCB);
+  color: var(--black-color, #353430);
+  font-family: "IBM Plex Mono", sans-serif;
+  font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  max-width: 491px;
+  min-width: 355px;
+  /* height: fit-content; */
+}
+
+@media (768px <= width <= 1400px) {
+
+  .aligned-text_right {
+    margin-right: 20px;
+  }
+}
+
+@media (768px < width <= 1400px) {
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 20px;
+  }
+
+  .cover-title {
+    padding-top: 100px;
+  }
+
+  .aligned-text_right {
+    padding-top: 114px;
+  }
+}
+
+/* .letter-spacing-extende {
+  letter-spacing: 60px;
+} */
+
+
+
+
+
+
+.content {
+  display: grid;
+  grid-template-rows: auto;
+  /* grid-template-rows: repeat(4, 1fr); */
+}
+
+
+.content_why {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(649px, 1fr));
+  gap: 20px;
+}
+
+.content_what {
+  display: grid;
+  grid-template-rows: auto;
+  height: fit-content;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+  gap: 20px ;
+}
+
+@media (width <= 984px) {
+  .grid {
+    /* grid-template-columns: auto-fit; */
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  }
+}
+
+.content_how {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+  height: fit-content;
+  gap: 20px;
+}
+
+.content_container-title {
+  background-color: var(--red-color, #FF8DCB);
+  color: var(--black-color, #353430);
+  font-family: IBM Plex Mono;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.content_container-subtitle {
+  background-color: var(--red-color, #FF8DCB);
+  color: var(--black-color, #353430);
+  font-family: IBM Plex Mono;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
 }
