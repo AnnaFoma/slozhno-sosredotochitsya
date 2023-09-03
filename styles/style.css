@@ -1,27 +1,28 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-:root {
-  --main-font: "IBM Plex mono";
-  --bg-color: #000028;
-  --text-color: #F1B2CE;
-  --accent-color: #DB00FF;
-  --red-color: #FF0070;
-  --shadow-color: #FF0070;
-  --black-color: #000028;
-}
+
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   color: var(--text-color, #353430);
   font-family: var(--main-font, sans-serif);
-  background-color: var(--bg-color, #FFF1F7);
+  background-color: var(--bg-color, #FFF1F7); 
+}
+
+.text-link {
+  text-shadow: 2px 2px 0px var(--link-shadow-color, #FF8DCB);
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
 }
 
 .header__theme-menu-button {
-  color: var(--red-color, #353430);
+  color: var(--title-color, #353430);
   height: 26px;
   padding: 0px 13px;
-  /* background-color: transparent;
-  border: none; */
+  background-color: transparent;
+  border: none;
   text-align: center;
   font-size: 18px;
   font-style: normal;
@@ -29,17 +30,38 @@
   line-height: 100%;
 }
 
+.header__theme-menu-button:hover {
+  border: 1px solid var(--btn-hover-border-color, rgba(50, 49, 45, 0.40));
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--btn-hover-border-color, rgba(50, 49, 45, 0.40))
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--btn-activ-focus-border-color, #353430);
+}
+
 .header {
-  background-image: url("../images/cover-image.png");
+  background-image: var(--bg-img, url("../images/cover-image-light.png"), url("../images/cover-image-dark.png"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   max-width: 1024px;
   min-width: 375px;
   max-height: 768px;
   min-height: 668px;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   /* width: 100%; */
   margin: auto;
+  display: flex;
+  flex-direction: column;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
   grid-template-columns: repeat(2, 1fr);
   /* grid-template-columns: repeat(2, 1fr); */
 
@@ -58,7 +80,7 @@
 
 .cover-title {
   color: var(--accent-color, #FFC2E6);
-  text-shadow: 4px 4px 0px var(--shadow-color, #FF0070);
+  text-shadow: 4px 4px 0px #FF0070;
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -67,21 +89,20 @@
   font-style: normal;
   font-weight: 700;
   line-height: 82.5%;
+  /* margin-top: 98px; */
 }
 
-.aligned-text_left {
-  /* color: #DB00FF;
-text-shadow: 4px 4px 0px #FF0070; */
-
-}
-
-.aligned-text_right {
+.aligned_right {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
-  background-color: var(--red-color, #FF8DCB);
-  color: var(--black-color, #353430);
+  /* margin-top: 80px; */
+}
+
+.text-right {
+  background-color: var(--title-bg-color, #FF8DCB);
+  color: var(--title-paradraph-color, #353430);
   font-family: "IBM Plex Mono", sans-serif;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   font-style: normal;
@@ -106,7 +127,7 @@ text-shadow: 4px 4px 0px #FF0070; */
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
   }
 
   .cover-title {
@@ -114,7 +135,7 @@ text-shadow: 4px 4px 0px #FF0070; */
   }
 
   .aligned-text_right {
-    padding-top: 114px;
+    /* padding-top: 114px; */
   }
 }
 
@@ -127,49 +148,83 @@ text-shadow: 4px 4px 0px #FF0070; */
 
 
 
-.content {
+.main_content {
   display: grid;
   grid-template-rows: auto;
-  /* grid-template-rows: repeat(4, 1fr); */
+  gap: 80px;
+  padding: 20px;
+  max-width: 1024px;
+  min-width: 375px;
+  max-height: 768px;
+  min-height: 668px;
+  margin: 60px auto;
 }
 
-
-.content_why {
+.content_why, .content_how {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(649px, 1fr));
+  grid-template-columns: minmax(236px, 315px) repeat(auto-fit, minmax(472px, 1fr));
   gap: 20px;
 }
 
 .content_what {
-  display: grid;
-  grid-template-rows: auto;
+  display: flex;
+  flex-direction: column;
   height: fit-content;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+.content_what > .content-title:first-child {
+  width: 315px;
+}
+
+.what-paragrph {
+  padding-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 20px ;
 }
 
-@media (width <= 984px) {
-  .grid {
-    /* grid-template-columns: auto-fit; */
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+@media (375px < width <= 768px) {
+  
+  .content_what > .content-title:first-child {
+    width: 236px;
+  }
+
+  .what-paragrph {
+    flex-direction: column;
   }
 }
 
-.content_how {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
-  height: fit-content;
+@media (width <= 768px) {
+  
+  .what-paragrph {
+    flex-direction: column;
+  }
+}
+
+.what-paragrph_item {
+  min-width: 315px;
+  max-width: 100%;
+}
+
+.content-title {
+  color: var(--title-color, #353430);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.content-paragraph {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
 .content_container-title {
-  background-color: var(--red-color, #FF8DCB);
-  color: var(--black-color, #353430);
-  font-family: IBM Plex Mono;
+  background-color: var(--title-bg-color, #FF8DCB);
+  color: var(--title-paradraph-color, #353430);
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -177,11 +232,73 @@ text-shadow: 4px 4px 0px #FF0070; */
 }
 
 .content_container-subtitle {
-  background-color: var(--red-color, #FF8DCB);
-  color: var(--black-color, #353430);
-  font-family: IBM Plex Mono;
+  background-color: var(--title-bg-color, #FF8DCB);
+  color: var(--title-paradraph-color, #353430);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
+}
+
+.content_container-text {
+  padding-top: 10px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.pictures-item {
+  display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: repeat(3, 1fr);
+gap: 20px;
+object-fit: cover;
+}
+
+.sunset {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 2;
+  grid-column-end: 3;
+  max-width: 649px;
+  max-height: 260px;
+  min-width: 479px;
+  min-height: 192px;
+}
+
+.ice-cream {
+  grid-row-start: 1;
+   grid-column-start: 3;
+   grid-row-end: 3;
+   grid-column-end: 4;
+   max-width: 315px;
+  max-height: 595px;
+  min-width: 229px;
+  min-height: 441px;
+}
+
+.tape { 
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-row-end: 4;
+  grid-column-end: 2; 
+  width: 315px;
+  height: 768px;
+}
+
+.books { 
+  grid-row-start: 2;
+   grid-column-start: 2;
+
+   grid-row-end: 3;
+   grid-column-end: 3;
+}
+
+.street { 
+  grid-row-start: 3;
+   grid-column-start: 2;
+
+   grid-row-end: 4;
+   grid-column-end: 4;
 }
