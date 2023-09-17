@@ -2,6 +2,7 @@
   color: var(--text-color);
   font-family: var(--main-font-family);
   background-color: var(--bg-color);
+  background-attachment: fixed;
 }
 
 .text-link {
@@ -281,10 +282,10 @@
     url("../images/cover-image-light.png"),
     url("../images/cover-image-dark.png")
   );
+  background-color: var(--bg-color);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   width: 100%;
   block-size: 100vh;
   margin: 0 auto;
