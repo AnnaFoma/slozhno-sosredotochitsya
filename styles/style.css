@@ -104,7 +104,7 @@
 
   .layout-title-block-two,
   .block-three,
-  .block-four__layout-title {
+  .block-four__layout-subtitle {
     margin-block-start: 60px;
   }
 
@@ -121,7 +121,7 @@
     display: block;
   }
 
-  .block-four__layout-title {
+  .block-four__layout-subtitle {
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
   }
@@ -232,7 +232,7 @@
 
   .layout-title-block-two,
   .block-three,
-  .block-four__layout-title {
+  .block-four__layout-subtitle {
     margin-block-start: 30px;
   }
 
